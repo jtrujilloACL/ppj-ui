@@ -1,6 +1,8 @@
 import './App.css';
 
-import FirstTutorial from './components/firstTutorial';
+import FirstTutorial from './components/FirstTutorial';
+import Navbar from './components/Navbar';
+
 import { ThemeProvider } from "@material-ui/core/styles";
 import ThemeCustom from './themeConfig';
 
@@ -11,6 +13,7 @@ function App() {
       {/** Theme   provider, para modificar los styles originales */}
       <ThemeProvider theme={ThemeCustom}>
 
+        <Navbar></Navbar>
         <FirstTutorial></FirstTutorial>
 
       </ThemeProvider>
