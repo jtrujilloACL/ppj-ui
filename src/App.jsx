@@ -1,23 +1,33 @@
 import './App.css';
 
-import FirstTutorial from './components/FirstTutorial';
-import Navbar from './components/layout/Navbar';
-import ListNavbar  from './components/layout/ListNavbar';
-import HiddenList from './components/layout/HiddenList';
-
 import { ThemeProvider } from "@material-ui/core/styles";
 import ThemeCustom from './themeConfig';
+import { BrowserRouter} from "react-router-dom";
 import ContainerMain from './components/layout/ContainerMain';
+import PageContainer from './components/PageContainer';
 
-function App() {
+const App = () => {
 
   return (
     <div>
-      {/** Theme   provider, para modificar los styles originales */}
+
+      {/** Theme   provider, modify styles MUI */}
       <ThemeProvider theme={ThemeCustom}>
 
-        <ContainerMain></ContainerMain>
+        {/** Provider for Routing */}
+        <BrowserRouter>
 
+          {/**
+           * Provider Nav Bar and Menu left
+           * @See the-concept-of-composition React
+           * Wrapper "Envoltorio" Routes and Routing
+           */}
+          <ContainerMain>
+
+            <PageContainer/>
+
+          </ContainerMain>
+        </BrowserRouter>
       </ThemeProvider>
     </div>
   );
