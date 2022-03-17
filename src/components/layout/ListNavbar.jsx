@@ -1,37 +1,70 @@
 import { React } from "react";
-import { List, ListItem, ListItemIcon, ListItemText, Divider } from "@material-ui/core";
+import { List, ListItem, ListItemIcon, ListItemText, Divider, ListSubheader } from "@material-ui/core";
 
-import  Assignment  from '@mui/icons-material/Assignment';
-import  AssignmentInd  from '@mui/icons-material/AssignmentInd';
-import  AssignmentTurnedIn  from '@mui/icons-material/AssignmentTurnedIn';
+//Icons
+import Assignment from '@mui/icons-material/Assignment';
+import AssignmentInd from '@mui/icons-material/AssignmentInd';
+import AssignmentTurnedIn from '@mui/icons-material/AssignmentTurnedIn';
+import FiberNew from '@mui/icons-material/FiberNew';
+
+import { useNavigate } from "react-router-dom";
 
 
 const ListNavbar = () => {
+    const navigate = useNavigate();
+
     return (
-        <List component='nav'>
-            
-            <ListItem button>
+        <List component='nav'
+            aria-labelledby="nested-list-subheader"
+            subheader={
+                <ListSubheader component="div" id="nested-list-subheader">
+                    Proyecto PPJ
+                </ListSubheader>
+            }
+        >
+
+            <ListItem button onClick={() => navigate("/perfil")}>
                 <ListItemIcon>
-                    <Assignment color="inherit"/>
+                    <Assignment color="inherit" />
                 </ListItemIcon>
                 <ListItemText primary="Perfil" />
             </ListItem>
-            
-            <ListItem button>
+
+            <ListItem button onClick={() => navigate("/evaluaciones")}>
                 <ListItemIcon>
-                    <AssignmentInd color="inherit"/>
+                    <AssignmentInd color="inherit" />
                 </ListItemIcon>
                 <ListItemText primary="Evaluaciones" />
             </ListItem>
 
-            <ListItem button>
+            <ListItem button onClick={() => navigate("/habilidades")}>
                 <ListItemIcon>
-                    <AssignmentTurnedIn color="inherit"/>
+                    <AssignmentTurnedIn color="inherit" />
                 </ListItemIcon>
                 <ListItemText primary="Habilidades" />
-            </ListItem> 
+            </ListItem>
 
-            <Divider/>
+
+            {/** Tutorials Section*/}
+            <Divider />
+
+            <ListSubheader component="div" id="Section-tutorial">
+                Tutoriales realizados
+            </ListSubheader>
+
+            <ListItem button onClick={() => navigate("/first-tutorial")}>
+                <ListItemIcon>
+                    <FiberNew color="inherit" />
+                </ListItemIcon>
+                <ListItemText primary="MUI - Botones" />
+            </ListItem>
+
+            <ListItem button onClick={() => navigate("/hidden-tutorial")}>
+                <ListItemIcon>
+                    <FiberNew color="inherit" />
+                </ListItemIcon>
+                <ListItemText primary="MUI - Ocultar" />
+            </ListItem>
         </List>
     );
 }
