@@ -10,7 +10,7 @@ import FiberNew from '@mui/icons-material/FiberNew';
 import { useNavigate } from "react-router-dom";
 
 
-const ListNavbar = () => {
+const ListNavbarLeft = () => {
     const navigate = useNavigate();
 
     return (
@@ -69,4 +69,4 @@ const ListNavbar = () => {
     );
 }
 
-export default ListNavbar;
+export default ListNavbarLeft;

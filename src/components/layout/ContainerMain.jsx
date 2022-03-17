@@ -1,7 +1,7 @@
 import React from 'react';
 import { Hidden, makeStyles } from "@material-ui/core";
 import Navbar from './Navbar';
-import DrawerLeft from './DrawerLeft';
+import MenuLeft from './MenuLeft';
 
 const stylesContainer = makeStyles(theme => ({
     root: {
@@ -31,7 +31,7 @@ const ContainerMain = (props)=> {
 
             {/** Left Menu - Hidden minor xs **/}
             <Hidden xsDown>
-                <DrawerLeft
+                <MenuLeft
                     variant="permanent"
                     open={true} 
                 />
@@ -39,7 +39,7 @@ const ContainerMain = (props)=> {
 
             {/** Left Menu - Hidden on click **/}
             <Hidden smUp>
-                <DrawerLeft
+                <MenuLeft
                     variant="temporary"
                     open={openState}
                     onClose={openCloseDrawer}
