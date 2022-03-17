@@ -17,6 +17,11 @@ const PageContainer = () => {
             ></Route>
 
             <Route
+                path='/grid-tutorial'
+                element={<GridTutorial />}
+            ></Route>
+
+            <Route
                 path='/hidden-tutorial'
                 element={<HiddenTutorial />}
             ></Route>

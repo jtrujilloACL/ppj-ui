@@ -65,6 +65,13 @@ const ListNavbarLeft = () => {
                 </ListItemIcon>
                 <ListItemText primary="MUI - Ocultar" />
             </ListItem>
+
+            <ListItem button onClick={() => navigate("/grid-tutorial")}>
+                <ListItemIcon>
+                    <FiberNew color="inherit" />
+                </ListItemIcon>
+                <ListItemText primary="MUI - Grid" />
+            </ListItem>
         </List>
     );
 }
