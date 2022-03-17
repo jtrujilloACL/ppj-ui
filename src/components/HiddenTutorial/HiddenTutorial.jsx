@@ -1,7 +1,7 @@
 import React from 'react';
 import { withWidth, Typography, Hidden, Button } from "@material-ui/core";
 
-function HiddenList(props) {
+function HiddenTutorial(props) {
     return ( 
         <div>
             <Typography variant="h6" color="initial">
@@ -19,4 +19,4 @@ function HiddenList(props) {
      );
 }
 
-export default withWidth()(HiddenList);
+export default withWidth()(HiddenTutorial);

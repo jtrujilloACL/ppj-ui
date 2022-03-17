@@ -2,7 +2,6 @@ import React from 'react';
 import { Hidden, makeStyles } from "@material-ui/core";
 import Navbar from './Navbar';
 import DrawerLeft from './DrawerLeft';
-import BoxContainer from './BoxContainer';
 
 const stylesContainer = makeStyles(theme => ({
     root: {
@@ -16,7 +15,7 @@ const stylesContainer = makeStyles(theme => ({
     },
 }));
 
-function ContainerMain() {
+const ContainerMain = (props)=> {
 
     const classes = stylesContainer();
     const [openState, setOpenState] = React.useState(false);
@@ -27,9 +26,10 @@ function ContainerMain() {
 
     return (
         <div className={classes.root}>
-
+            {/** Nav Bar **/}
             <Navbar openDrawer={openCloseDrawer} />
 
+            {/** Left Menu - Hidden minor xs **/}
             <Hidden xsDown>
                 <DrawerLeft
                     variant="permanent"
@@ -37,6 +37,7 @@ function ContainerMain() {
                 />
             </Hidden>
 
+            {/** Left Menu - Hidden on click **/}
             <Hidden smUp>
                 <DrawerLeft
                     variant="temporary"
@@ -45,10 +46,11 @@ function ContainerMain() {
                 />
             </Hidden>
 
+            {/** Offset and Main page **/}
             <div className={classes.content}>
                 <div className={classes.toolbar}></div>
 
-                <BoxContainer></BoxContainer>
+                {props.children}
 
             </div>
         </div>
