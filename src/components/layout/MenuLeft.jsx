@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, Drawer, Divider } from "@material-ui/core";
-import ListNavbar from './ListNavbar';
+import ListNavbarLeft from './ListNavbarLeft';
 
 const styleDrawer = makeStyles(theme => ({
     drawer: {
@@ -14,7 +14,7 @@ const styleDrawer = makeStyles(theme => ({
 }));
 
 
-function DrawerLeft(props) {
+function MenuLeft(props) {
 
     const classes = styleDrawer();
 
@@ -32,10 +32,10 @@ function DrawerLeft(props) {
 
             <div className={classes.toolbar}></div>
             <Divider />
-            <ListNavbar />
+            <ListNavbarLeft />
             
         </Drawer>
     );
 }
 
-export default DrawerLeft;
+export default MenuLeft;
