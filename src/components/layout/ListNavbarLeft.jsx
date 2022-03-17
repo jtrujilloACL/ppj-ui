@@ -72,6 +72,13 @@ const ListNavbarLeft = () => {
                 </ListItemIcon>
                 <ListItemText primary="MUI - Grid" />
             </ListItem>
+
+            <ListItem button onClick={() => navigate("/udemy-tutorial")}>
+                <ListItemIcon>
+                    <FiberNew color="inherit" />
+                </ListItemIcon>
+                <ListItemText primary="Udemy - App Gastos" />
+            </ListItem>
         </List>
     );
 }
