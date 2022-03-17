@@ -1,5 +1,7 @@
 import { React } from "react";
 import { AppBar, Toolbar, Typography, makeStyles, IconButton, Button } from "@material-ui/core"
+import { useNavigate } from "react-router-dom";
+
 import Menu from "@mui/icons-material/Menu";
 
 
@@ -24,6 +26,8 @@ const useStyle = makeStyles(ThemeCustom => ({
 
 const Navbar = (props) => {
 
+    const navigate = useNavigate();
+
     const classes = useStyle();
 
     return (
@@ -41,11 +45,11 @@ const Navbar = (props) => {
 
                 </IconButton>
 
-                <Typography variant="h6" className={classes.titleBar}>
+                <Typography variant="h6" className={classes.titleBar} onClick={ () => navigate("/") }>
                     ACL
                 </Typography>
 
-                <Button color="inherit" variant="text">
+                <Button color="inherit" variant="text" onClick={ () => navigate("/login") }>
                     Login
                 </Button>
 
