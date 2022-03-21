@@ -1,4 +1,5 @@
 import React from 'react';
+import ExpensesMUI from './ExpenseMUI/ExpensesMUI';
 
 import Expenses from './Expenses/Expenses';
 
@@ -6,7 +7,7 @@ const UdemyTutorial = () => {
   const expenses = [
     {
       id: 'e1',
-      title: 'Papel toalet',
+      title: 'Papel Aluminio',
       amount: 94.12,
       date: new Date(2021, 7, 14),
     },
@@ -36,6 +37,9 @@ const UdemyTutorial = () => {
     <div>
       <h2>Tutorial React!</h2>
       <Expenses items={expenses} />
+      
+      <h2>Tutorial React MUI!</h2>
+      <ExpensesMUI items={expenses} />
     </div>
   );
 }
