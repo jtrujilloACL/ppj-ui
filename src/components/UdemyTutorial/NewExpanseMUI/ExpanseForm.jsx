@@ -30,15 +30,12 @@ const ExpanseForm = (props)=>{
 
     const titleChangeHandler = (event) => {
         setTitleExpanseForm(event.target.value);
-        console.log("setTitleExpanseForm", event.target.value);
     };
     const dateChangeHandler = (event) => {
         setDateExpanseFom(event.target.value);
-        console.log("setDateExpanseFom", event.target.value);
     };
     const amountChangeHandler = (event) => {
         setAmountExpanseForm(event.target.value);
-        console.log("setAmountExpanseForm", event.target.value);
     };
 
     const classes = useStyles();
