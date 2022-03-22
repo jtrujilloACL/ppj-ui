@@ -1,7 +1,7 @@
 import React from 'react';
 import ExpensesMUI from './ExpenseMUI/ExpensesMUI';
-
 import Expenses from './Expenses/Expenses';
+import NewExpanse from "./NewExpanseMUI/NewExpanse";
 
 const UdemyTutorial = () => {
   const expenses = [
@@ -32,9 +32,16 @@ const UdemyTutorial = () => {
   //   React.createElement('h2', {}, "Let's get started!"),
   //   React.createElement(Expenses, { items: expenses })
   // );
+  const addExpenseHandler = (enteredExpenseData)=>{
+    console.log("Udemy Tutorial");
+    console.log(enteredExpenseData);
+  }
 
   return (
     <div>
+      <h2>Ingresar gastos</h2>
+      <NewExpanse onAddExpanse={addExpenseHandler} />
+
       <h2>Tutorial React!</h2>
       <Expenses items={expenses} />
       
