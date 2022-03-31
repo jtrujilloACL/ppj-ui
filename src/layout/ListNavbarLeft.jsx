@@ -79,6 +79,13 @@ const ListNavbarLeft = () => {
                 </ListItemIcon>
                 <ListItemText primary="Udemy - App Gastos" />
             </ListItem>
+
+            <ListItem button onClick={() => navigate("/node-api-rest")}>
+                <ListItemIcon>
+                    <FiberNew color="inherit" />
+                </ListItemIcon>
+                <ListItemText primary="API - Node ts" />
+            </ListItem>
         </List>
     );
 }
