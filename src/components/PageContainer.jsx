@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Route, Routes } from "react-router-dom";
 
 //Components
 import FirstTutorial from './FirstTutorial/FirstTutorial';
 import GridTutorial from './GridTutorial/GridTutorial';
 import HiddenTutorial from './HiddenTutorial/HiddenTutorial';
+import Login from './Login/Login';
 import NodeApiRest from './NodeApiRest/NodeApiRest';
 import UdemyTutorial from './UdemyTutorial/UdemyTutorial';
 
@@ -13,6 +14,11 @@ const PageContainer = () => {
 
     return (
         <Routes>
+            <Route
+                path='/login'
+                element={<Login />}
+            ></Route>
+
             <Route
                 path='/first-tutorial'
                 element={<FirstTutorial />}
