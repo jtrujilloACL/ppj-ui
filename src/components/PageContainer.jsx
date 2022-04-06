@@ -5,6 +5,8 @@ import { Route, Routes } from "react-router-dom";
 import FirstTutorial from './FirstTutorial/FirstTutorial';
 import GridTutorial from './GridTutorial/GridTutorial';
 import HiddenTutorial from './HiddenTutorial/HiddenTutorial';
+import Login from './Login/Login';
+import NodeApiRest from './NodeApiRest/NodeApiRest';
 import UdemyTutorial from './UdemyTutorial/UdemyTutorial';
 
 //TODO: split in Page and Routing
@@ -12,6 +14,11 @@ const PageContainer = () => {
 
     return (
         <Routes>
+            <Route
+                path='/login'
+                element={<Login />}
+            ></Route>
+
             <Route
                 path='/first-tutorial'
                 element={<FirstTutorial />}
@@ -33,8 +40,8 @@ const PageContainer = () => {
             ></Route>
 
             <Route
-                path='/'
-                element={<GridTutorial />}
+                path='/node-api-rest'
+                element={<NodeApiRest />}
             ></Route>
 
         </Routes>

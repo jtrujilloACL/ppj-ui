@@ -3,7 +3,7 @@ import './App.css';
 import { ThemeProvider } from "@material-ui/core/styles";
 import ThemeCustom from './themeConfig';
 import { BrowserRouter} from "react-router-dom";
-import ContainerMain from './components/layout/ContainerMain';
+import ContainerMain from './layout/ContainerMain';
 import PageContainer from './components/PageContainer';
 
 const App = () => {
