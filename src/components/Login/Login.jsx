@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -8,9 +8,10 @@ import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-//import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import LockOutlined from '@mui/icons-material/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { Avatar } from '@material-ui/core';
 
 const Copyright = () => {
   return (
@@ -27,7 +28,7 @@ const Copyright = () => {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100vh',
+    height: '75vh',
   },
   image: {
     backgroundRepeat: 'no-repeat',
@@ -56,15 +57,62 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Login() {
+
+  /* State Forms */
+  const [emailState, setEmailState] = useState('');
+  const [passwordState, setPasswordState] = useState('');
+  const [btnSubmitState, setBtnSubmitState] = useState(false);
+  const [data, setData] = useState({
+    email: "",
+    password: ""
+  });
+
+  /* Handlers events */
+  const emailChangeHandler = (event) => {
+    setEmailState(event.target.value);
+    console.log(emailState);
+  }
+  const passwordChangeHandler = (event) => {
+    setPasswordState(event.target.value);
+    console.log(passwordState);
+  }
+
+  const submitChangeHandler = (event) => {
+    //TODO: API Node auntethication
+    try {
+      event.preventDefault();
+      setData({
+        email: emailState,
+        password: passwordState,
+      });
+      console.log(data);
+      //TODO: promise wait for response to clean form
+      //setEmailState('');
+      //setPasswordState('');
+      setBtnSubmitState(false);
+
+    } catch (error) {
+      console.log("error submitChangeHandler submit");
+      console.log(error);
+
+    }
+  }
+
+  const enableSubmitHandler = () => {
+    let aux = (emailState !== '' && passwordState !== '') ? true : false;
+    setBtnSubmitState(aux);
+  }
   const classes = useStyles();
 
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={2} md={2} ></Grid>
-      <Grid item xs={12} sm={8} md={8} component={Paper} elevation={6} square>
+      <Grid item xs={false} sm={2} md={3} lg={3} ></Grid>
+      <Grid item xs={12} sm={8} md={6} lg={6} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-
+          <Avatar className={classes.avatar}>
+            <LockOutlined />
+          </Avatar>
           <Typography component="h1" variant="h5">
             Iniciar Sesión
           </Typography>
@@ -78,6 +126,9 @@ export default function Login() {
               label="Correo electrónico"
               name="email"
               autoComplete="email"
+              onChange={emailChangeHandler}
+              onBlur={enableSubmitHandler}
+              value={emailState}
               autoFocus
             />
             <TextField
@@ -90,30 +141,37 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={passwordChangeHandler}
+              onBlur={enableSubmitHandler}
+              value={passwordState}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="secondary" />}
               label="Recordarme"
             />
             <Button
-              type="submit"
+              disabled={!btnSubmitState}
               fullWidth
               variant="contained"
               color="secondary"
               className={classes.submit}
+              onClick={submitChangeHandler}
             >
               Iniciar Sesión
             </Button>
             <Grid container>
-              <Grid item xs>
+              <Grid item xs={12} md={5}>
                 <Link href="#" variant="body2" color='secondary'>
                   Olvidaste contraseña?
                 </Link>
               </Grid>
-              <Grid item>
-                <Link href="#" variant="body2" color='secondary'>
+
+              <Grid item xs={false} md={3} />
+
+              <Grid item xs={12} md={4}>
+                {/* <Link href="#" variant="body2" color='secondary'>
                   {"No tienes cuenta? Registrarse"}
-                </Link>
+                </Link> */}
               </Grid>
             </Grid>
             <Box mt={5}>
